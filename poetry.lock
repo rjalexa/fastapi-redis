@@ -504,6 +504,20 @@ files = [
 test = ["pytest (>=6)"]
 
 [[package]]
+name = "faker"
+version = "19.13.0"
+description = "Faker is a Python package that generates fake data for you."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "Faker-19.13.0-py3-none-any.whl", hash = "sha256:da880a76322db7a879c848a0771e129338e0a680a9f695fd9a3e7a6ac82b45e1"},
+    {file = "Faker-19.13.0.tar.gz", hash = "sha256:14ccb0aec342d33aa3889a864a56e5b3c2d56bce1b89f9189f4fbc128b9afc1e"},
+]
+
+[package.dependencies]
+python-dateutil = ">=2.4"
+
+[[package]]
 name = "fastapi"
 version = "0.104.1"
 description = "FastAPI framework, high performance, easy to learn, fast to code, ready for production"
@@ -1679,4 +1693,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "c31874a3835201ac5a31dec8bc066c7532e5eed7a4b3f85545df972a9cf62867"
+content-hash = "f246513ad5b5442985f12e900cfe22529551f7a7bcbbc7fcd0e8ecf8b21ce906"
