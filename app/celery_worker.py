@@ -1,4 +1,7 @@
-""" Celery task to insert an entry in the Redis cache"""
+""" Celery task to insert an entry in the Redis cache 
+Also installed Flower to monitor the Celery queues etc
+poetry run celery -A app.celery_worker flower
+"""
 # app/celery_worker.py
 from celery import Celery
 import redis
