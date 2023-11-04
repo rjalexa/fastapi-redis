@@ -1,8 +1,11 @@
-""" Celery task to insert an entry in the Redis cache 
+""" Celery task to insert an entry in the Redis cache
+from the project root folder: 
+    poetry run celery -A app.celery_worker worker --loglevel=DEBUG
 Also installed Flower to monitor the Celery queues etc
-poetry run celery -A app.celery_worker flower
+after the Celery queue is running then use:
+    poetry run celery --broker=redis://localhost:6379/0 flower
+to add flower monitoring
 """
-# app/celery_worker.py
 from celery import Celery
 import redis
 from app.config import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD

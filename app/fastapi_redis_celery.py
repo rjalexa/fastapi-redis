@@ -2,8 +2,8 @@
 FastAPI route to simulate a Redis cache
 *** this version uses Celery to actually insert a new cache entry into Redis
 the cache is a REDIS server started with the connection parameters as above
-this app can be started from the project rootwith:
-    * poetry run uvicorn app.fastapi3_cache:app --reload
+this app can be started from the project root with:
+    * poetry run uvicorn app.fastapi_redis_celery:app --reload
 this will place uvicorn listening on port 8000
 redis can be started on the Mac in background with
     * brew services start redis  
