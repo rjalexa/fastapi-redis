@@ -6,6 +6,7 @@ after the Celery queue is running then use:
     poetry run celery --broker=redis://localhost:6379/0 flower
 to add flower monitoring
 """
+from time import sleep
 from celery import Celery
 import redis
 from app.config import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD
@@ -21,6 +22,9 @@ celery_app = Celery(
 @celery_app.task
 def insert_into_cache(hash_key, hash_data):
     """our Celery task"""
+    # simulate a 5 seconds long running process
+    sleep(5)
+    # now actually shove stuff in the Redis cache
     redis_client = redis.StrictRedis(
         host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD, decode_responses=True
     )
