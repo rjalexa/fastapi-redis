@@ -18,6 +18,9 @@ faker = "^19.13.0"
 flower = "^2.0.1"
 
 
+[tool.poetry.group.dev.dependencies]
+watchdog = "^3.0.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
