@@ -1,7 +1,7 @@
 # pylint: disable=line-too-long
 """ file task.py 
     to launch the Celery task
-    celery --app=app.task.app worker --concurrency=1 --loglevel=DEBUG
+    poetry run celery --app=app.task.app worker --concurrency=1 --loglevel=DEBUG
     from the project root in the right poetry env
 
     to have this relaunched every time it changes add watchdog to poetry dev group

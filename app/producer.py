@@ -1,6 +1,6 @@
 """  another small FastAPI demo leveraging Celery tasks
-     from the project root
-     poetry run uvicorn app.producer:app
+     to run it, from the project root:
+        poetry run uvicorn app.producer:app
 """
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -18,6 +18,11 @@ class TaskOut(BaseModel):
 
     id: str
     status: str
+
+
+def _to_task_out(r: AsyncResult) -> TaskOut:
+    """utility function meant to convert an AsyncResult object into a TaskOut object"""
+    return TaskOut(id=r.task_id, status=r.status)
 
 
 @app.get("/start")
@@ -38,8 +43,3 @@ def status(task_id: str) -> TaskOut:
     """
     r = task.app.AsyncResult(task_id)
     return _to_task_out(r)
-
-
-def _to_task_out(r: AsyncResult) -> TaskOut:
-    """utility function meant to convert an AsyncResult object into a TaskOut object"""
-    return TaskOut(id=r.task_id, status=r.status)
